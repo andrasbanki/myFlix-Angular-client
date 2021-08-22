@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { UserLoginService } from '../fetch-api-data.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-login-form',
@@ -16,7 +17,9 @@ export class UserLoginFormComponent implements OnInit {
   constructor(
     public fetchApiData: UserLoginService,
     public dialogRef: MatDialogRef<UserLoginFormComponent>,
-    public snackBar: MatSnackBar) { }
+    public snackBar: MatSnackBar,
+    public router: Router,
+  ) { }
 
   ngOnInit(): void {
   }
@@ -27,12 +30,13 @@ export class UserLoginFormComponent implements OnInit {
       console.log(response)
       localStorage.setItem('user', response.user.Username);
       localStorage.setItem('token', response.token);
-      this.snackBar.open(response, 'OK', {
+      this.snackBar.open("Welcome to myFlix!", 'OK', {
         duration: 2000
       });
+      this.router.navigate(['movies']);
     }, (response) => {
       console.log(response)
-      this.snackBar.open(response, 'OK', {
+      this.snackBar.open("Your user ID or password is incorrect", 'OK', {
         duration: 2000
       });
     });

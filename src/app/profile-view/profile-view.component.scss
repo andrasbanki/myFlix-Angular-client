@@ -1,0 +1,58 @@
+.profile-view {
+  background-color: rgb(228, 220, 236);
+  text-align: center;
+  border: 0.5px solid black;
+  padding: 70px;
+  margin: auto;
+}
+
+.user-categories {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.user-details {
+  font-size: 20px;
+  font-weight: 100;
+  padding: 10px;
+}
+
+.myFavMovies {
+  margin: 2em auto;
+  text-align: center;
+}
+
+.myProfile {
+  font-size: 40px;
+  padding: 40px;
+}
+
+.delete {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+mat-card {
+  max-width: 400px;
+  margin: 2em auto;
+  text-align: center;
+  background-color: rgb(228, 220, 236);
+}
+
+mat-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+mat-card-header {
+  max-width: 400px;
+  margin: 2em auto;
+  text-align: center;
+  justify-content: center;
+}
+
+mat-card-title {
+  padding: 30px;
+}

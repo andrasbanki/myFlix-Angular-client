@@ -1,0 +1,33 @@
+.main-page {
+  background-image: url("https://images.unsplash.com/photo-1543840950-89196ec9923b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2767&q=80");
+  background-color: #cccccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Montserrat", sans-serif;
+  height: 100vh;
+  margin: -20px 0 50px;
+}
+
+.login {
+  margin-top: 30px;
+}
+
+.welcome-text {
+  font-size: 5vw;
+  display: flex;
+  flex-direction: row;
+  margin: 70px;
+  text-shadow: 1.5px 1.5px 9px;
+}
+
+h1 {
+  font-size: 50px;
+  word-spacing: 8px;
+}
+
+h4 {
+  text-shadow: 0.5px 1px 1px;
+  word-spacing: 3px;
+}

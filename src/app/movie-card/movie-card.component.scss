@@ -1,3 +1,11 @@
+.main-view {
+  background-color: rgba(156, 89, 89, 0.281);
+}
+
+.movie-card {
+  background-color: rgba(117, 108, 108, 0.438);
+}
+
 mat-card {
   max-width: 400px;
   margin: 2em auto;
@@ -16,4 +24,8 @@ mat-card-header {
   margin: 2em auto;
   text-align: center;
   justify-content: center;
+}
+
+mat-card-title {
+  padding: 30px;
 }

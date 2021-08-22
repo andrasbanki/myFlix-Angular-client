@@ -1,0 +1,38 @@
+<app-nav-bar></app-nav-bar>
+<div>
+  <div class="profile-view">
+    <p class="myProfile">My Profile</p>
+    <hr>
+    <br>
+    <p class="user-categories">Username: </p>
+    <p class="user-details">{{user.Username}}</p>
+    <p class="user-categories">Email: </p>
+    <p class="user-details">{{ user.Email }}</p>
+    <p class="user-categories">Birthday: </p>
+    <p class="user-details">{{ user.Birthday | date }}</p>
+    <button mat-button color="primary" (click)='profileUpdateDialog()'>Update Profile</button>
+    <br>
+    <hr>
+    <div class="delete">
+      <span>Closing your account means permanently deleting your profile and removing access to
+        all your myFlix information from
+        our site.</span>
+    </div>
+    <button mat-button color="warn" (click)="deleteUser()" routerLink="/welcome">Delete Account</button>
+  </div>
+    <div class="myFavMovies">
+    <p class="myProfile">My Favorite Movies:</p>
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-around; text-align: center;">
+        <mat-card *ngFor="let favorite of favorit;" style="margin: 10px; flex: 1 1 auto;">
+          <mat-card-header>
+            <mat-card-title>{{favorite.Title}}</mat-card-title>
+            <mat-card-subtitle>{{favorite.Director.Name}}</mat-card-subtitle>
+          </mat-card-header>
+          <img src={{favorite.imageUrl}} alt={{favorite.Title}} />
+          <mat-card-actions>
+            <mat-icon (click)='removeFavorites(favorite._id, favorite.Title)'>delete_outline</mat-icon>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+</div>

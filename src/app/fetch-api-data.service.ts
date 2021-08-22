@@ -235,9 +235,10 @@ export class GetUserService {
 })
 export class AddFavMovieService {
   constructor(private http: HttpClient) { }
-  AddFavMovie(): Observable<any> {
+  AddFavMovie(_id: string): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.post(apiUrl + 'users/:Username/favorites/:_id', {
+    const user = localStorage.getItem('user');
+    return this.http.post(`${apiUrl}users/${user}/favorites/${_id}`, _id, {
       headers: new HttpHeaders({
         Authorization: 'Bearer ' + token,
       })
@@ -268,9 +269,10 @@ export class AddFavMovieService {
 })
 export class EditUserService {
   constructor(private http: HttpClient) { }
-  EditUser(): Observable<any> {
+  EditUser(userDetails: any): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.put(apiUrl + '/users/:Username', {
+    const user = localStorage.getItem('user');
+    return this.http.put(`${apiUrl}users/${user}`, userDetails, {
       headers: new HttpHeaders({
         Authorization: 'Bearer ' + token,
       })
@@ -303,7 +305,8 @@ export class DeleteUserService {
   constructor(private http: HttpClient) { }
   DeleteUser(): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.delete(apiUrl + '/users/:Username', {
+    const user = localStorage.getItem('user');
+    return this.http.delete(`${apiUrl}users/${user}`, {
       headers: new HttpHeaders({
         Authorization: 'Bearer ' + token,
       })
@@ -334,9 +337,10 @@ export class DeleteUserService {
 })
 export class DeleteFavMovieService {
   constructor(private http: HttpClient) { }
-  DeleteFavMovie(): Observable<any> {
+  DeleteFavMovie(_id: string): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.delete(apiUrl + 'users/:Username/favorites/:_id', {
+    const user = localStorage.getItem('user');
+    return this.http.delete(`${apiUrl}users/${user}/favorites/${_id}`, {
       headers: new HttpHeaders({
         Authorization: 'Bearer ' + token,
       })
