@@ -27,7 +27,6 @@ export class UserLoginFormComponent implements OnInit {
   loginUser(): void {
     this.fetchApiData.userLogin(this.userData).subscribe((response) => {
       this.dialogRef.close();
-      console.log(response)
       localStorage.setItem('user', response.user.Username);
       localStorage.setItem('token', response.token);
       this.snackBar.open("Welcome to myFlix!", 'OK', {
@@ -35,7 +34,6 @@ export class UserLoginFormComponent implements OnInit {
       });
       this.router.navigate(['movies']);
     }, (response) => {
-      console.log(response)
       this.snackBar.open("Your user ID or password is incorrect", 'OK', {
         duration: 2000
       });

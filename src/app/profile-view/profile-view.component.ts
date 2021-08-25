@@ -64,7 +64,6 @@ export class ProfileViewComponent implements OnInit {
 
   removeFavorites(_id: string, title: string): void {
     this.fetchApiDataFavMovDelete.DeleteFavMovie(_id).subscribe((resp) => {
-      console.log(resp);
       let favmovies = resp.FavoritMovies;
       localStorage.setItem('FavoritMovies', favmovies);
       this.snackBar.open(

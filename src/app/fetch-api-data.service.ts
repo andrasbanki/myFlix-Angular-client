@@ -8,6 +8,11 @@ import { map } from 'rxjs/operators';
 
 const apiUrl = 'https://andrasbanki-myflixapp.herokuapp.com/';
 
+/**
+  * API call to the user registration endpoint.
+  * @returns Adds a new user to the database.
+  * @param userDetails An object containing the user's info.
+  */
 @Injectable({
   providedIn: 'root'
 })
@@ -18,7 +23,6 @@ export class UserRegistrationService {
   }
  // Making the api call for the user registration endpoint
   public userRegistration(userDetails: any): Observable<any> {
-    console.log(userDetails);
     return this.http.post(apiUrl + 'users', userDetails).pipe(
       catchError(this.handleError)
     );
@@ -37,6 +41,12 @@ export class UserRegistrationService {
   }
 }
 
+/**
+  * API call to the user login endpoint.
+  * @param username Username of type string.
+  * @param password Password of type string.
+  * @returns Object with username and bearer token.
+  */
 @Injectable({
   providedIn: 'root'
 })
@@ -44,7 +54,6 @@ export class UserLoginService {
   constructor(private http: HttpClient) {
   }
   public userLogin(userDetails: any): Observable<any> {
-    console.log(userDetails);
     return this.http.post(apiUrl + 'login', userDetails).pipe(
       catchError(this.handleError)
     );
@@ -63,7 +72,10 @@ export class UserLoginService {
   }
 } 
 
-
+/**
+  * API call to the movies endpoint.
+  * @returns Returns a list of all the movies from database.
+  */
 @Injectable({
   providedIn: 'root'
 })
@@ -80,7 +92,6 @@ export class GetAllMoviesService {
   }
   // Non-typed response extraction
   private extractResponseData(res: Response | Object): any {
-    console.log(res);
     const body = res;
     return body || { };
   }
@@ -98,6 +109,11 @@ export class GetAllMoviesService {
   }
 }
 
+/**
+  * API call to a single movie endpoint.
+  * @params Movie title of type string.
+  * @returns Returns a movie's data selected by title.
+  */
 @Injectable({
   providedIn: 'root'
 })
@@ -113,7 +129,6 @@ export class GetOneMovieService {
     .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
   private extractResponseData(res: Response | Object): any {
-    console.log(res);
     const body = res;
     return body || { };
   }
@@ -131,6 +146,11 @@ export class GetOneMovieService {
   }
 }
 
+/**
+  * API call to the director name endpoint.
+  * @param directorName Name of movie director of type string.
+  * @returns Returns the director data.
+  */
 @Injectable({
   providedIn: 'root'
 })
@@ -146,7 +166,6 @@ export class GetDirectorService {
     .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
   private extractResponseData(res: Response | Object): any {
-    console.log(res);
     const body = res;
     return body || { };
   }
@@ -164,6 +183,11 @@ export class GetDirectorService {
   }
 }
 
+/**
+  * API call to the genre name endpoint.
+  * @param genre Name of genre of type string.
+  * @returns Returns the genre data.
+  */
 @Injectable({
   providedIn: 'root'
 })
@@ -179,7 +203,6 @@ export class GetGenreService {
     .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
   private extractResponseData(res: Response | Object): any {
-    console.log(res);
     const body = res;
     return body || { };
   }
@@ -197,6 +220,11 @@ export class GetGenreService {
   }
 }
 
+/**
+  * API call to the user username endpoint.
+  * @param user Username of user of type string.
+  * @returns Returns user from database.
+  */
 @Injectable({
   providedIn: 'root'
 })
@@ -212,7 +240,6 @@ export class GetUserService {
     .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
   private extractResponseData(res: Response | Object): any {
-    console.log(res);
     const body = res;
     return body || { };
   }
@@ -230,6 +257,11 @@ export class GetUserService {
   }
 }
 
+/**
+  * Adds a movie to the favorites movies list.
+  * @param _id The id of the selected movie.
+  * @returns Returns an array of the selected movie.
+  */
 @Injectable({
   providedIn: 'root'
 })
@@ -246,7 +278,6 @@ export class AddFavMovieService {
     .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
   private extractResponseData(res: Response | Object): any {
-    console.log(res);
     const body = res;
     return body || { };
   }
@@ -264,6 +295,11 @@ export class AddFavMovieService {
   }
 }
 
+/**
+  * API call to to edit the user data.
+  * @param userDetails Object of user name, password, email and date of birth.
+  * @returns User object.
+  */
 @Injectable({
   providedIn: 'root'
 })
@@ -280,7 +316,6 @@ export class EditUserService {
     .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
   private extractResponseData(res: Response | Object): any {
-    console.log(res);
     const body = res;
     return body || { };
   }
@@ -298,6 +333,9 @@ export class EditUserService {
   }
 }
 
+/**
+  * Allows a user to delete their account.
+  */
 @Injectable({
   providedIn: 'root'
 })
@@ -314,7 +352,6 @@ export class DeleteUserService {
     .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
   private extractResponseData(res: Response | Object): any {
-    console.log(res);
     const body = res;
     return body || { };
   }
@@ -332,6 +369,11 @@ export class DeleteUserService {
   }
 }
 
+/**
+  * Delete a movie from the favorite movies list.
+  * @returns Returns an array of the favorites.
+  * @param _id The id of the selected movie.
+  */
 @Injectable({
   providedIn: 'root'
 })
@@ -348,7 +390,6 @@ export class DeleteFavMovieService {
     .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
   private extractResponseData(res: Response | Object): any {
-    console.log(res);
     const body = res;
     return body || { };
   }

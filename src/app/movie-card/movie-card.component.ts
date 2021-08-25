@@ -28,7 +28,6 @@ export class MovieCardComponent {
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
     this.movies = resp;
-    console.log(this.movies);
     return this.movies;
     });
   }
@@ -66,8 +65,6 @@ export class MovieCardComponent {
 
   addFavorite(_id: string, title: string): void {
     this.fetchApiDataAddFavMov.AddFavMovie(_id).subscribe((resp: any) => {
-      console.log("AddFavMovie");
-      console.log(resp);
       let favmovies = resp.FavoritMovies;
       localStorage.setItem('FavoritMovies', favmovies);
       this.snackBar.open(`${title} has been added to your favorite movies list`, 'OK', {

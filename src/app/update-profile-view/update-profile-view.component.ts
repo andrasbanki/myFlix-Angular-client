@@ -31,7 +31,6 @@ export class UpdateProfileViewComponent implements OnInit {
         });
       },
       (res) => {
-        console.log(res);
         this.snackBar.open(res, 'OK', {
           duration: 2000,
         });
