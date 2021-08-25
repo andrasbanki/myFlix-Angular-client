@@ -1,5 +1,25 @@
 # MyFlixAngularClient
 
+![Screenshot](https://github.com/andrasbanki/myFlix-Angular-client/raw/main/img/myFlixAngular1.png)
+![Screenshot](https://github.com/andrasbanki/myFlix-Angular-client/raw/main/img/myFlixAngular2.png)
+
+## Description
+
+Using Angular, build the client-side for an application called myFlix based on its existing server-side code (myFlix API and database), with supporting documentation.
+
+Web Application link: https://andrasbanki.github.io/myFlix-Angular-client/
+
+API link: https://andrasbanki-myflixapp.herokuapp.com/
+
+API Documentation: https://andrasbanki-myflixapp.herokuapp.com/documentation.html
+
+## User Stories
+
+- As a user, I want to be able to receive information on movies, directors, and genres so that I can learn more about movies I’ve watched or am interested in.
+- As a user, I want to be able to create a profile so I can save data about my favorite movies.
+
+# Quick start
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.1.
 
 ## Development server
